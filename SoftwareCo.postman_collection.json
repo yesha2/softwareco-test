@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "8d9959b2-8360-4334-b713-2a71cd87d515",
+		"name": "SoftwareCo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25260399"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"parth123\",\r\n    \"firstName\": \"Parth\",\r\n    \"lastName\": \"Patel\",\r\n    \"email\": \"parth333@yopmail.com\",\r\n    \"password\": \"parth@12345\",\r\n    \"roleId\": \"6684272ecdd1a6174830990a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"parth333@yopmail.com\",\r\n    \"password\": \"parth@12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhcnRoQHlvcG1haWwuY29tIiwiaWF0IjoxNzE5OTM1OTQ4LCJleHAiOjE3MjI1Mjc5NDh9._OSLujCQsKtidXqnk8EzoKoPefRkwg0Vcg5CshjISlc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/list-users?searchTerm=Pa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"list-users"
+							],
+							"query": [
+								{
+									"key": "searchTerm",
+									"value": "Pa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update same data for many users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhcnRoQHlvcG1haWwuY29tIiwiaWF0IjoxNzE5OTM1OTQ4LCJleHAiOjE3MjI1Mjc5NDh9._OSLujCQsKtidXqnk8EzoKoPefRkwg0Vcg5CshjISlc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"users\": [\"66841e5be9d1041e24e3193e\", \"66842ab2dec7b5a08b521001\"],\r\n    \"updateData\": {\r\n    \"firstName\": \"Yeshhh\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/update-same-data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"update-same-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update different data for different users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhcnRoQHlvcG1haWwuY29tIiwiaWF0IjoxNzE5OTM1OTQ4LCJleHAiOjE3MjI1Mjc5NDh9._OSLujCQsKtidXqnk8EzoKoPefRkwg0Vcg5CshjISlc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userUpdates\" : [\r\n            {\r\n              \"userId\": \"66841e5be9d1041e24e3193e\",\r\n              \"updates\": {\r\n                \"firstName\": \"Yesha\"\r\n              }\r\n            },\r\n            {\r\n              \"userId\": \"668423b7a6c662a7d6402fd7\",\r\n              \"updates\": {\r\n                \"userName\":\"Jack123\"\r\n              }\r\n            }\r\n          ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/update-different-data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"update-different-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check module access",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"parth333@yopmail.com\",\r\n    \"module\": \"userModule\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/check-access",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"check-access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhcnRoMzMzQHlvcG1haWwuY29tIiwiaWF0IjoxNzE5OTM5NzI0LCJleHAiOjE3MjI1MzE3MjR9.ZpV7Se7L3Oqw2P91aSnKnKuWbOmKnD71yMf2i68VnJ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "create role",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleName\": \"Teacher\",\r\n    \"accessModules\": [\"studentModule\",\"booksModule\" ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/roles/create-role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles",
+								"create-role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add access module",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accessModule\": \"formsModule\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/roles/add-access-module/668426b3cdd1a61748309907",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles",
+								"add-access-module",
+								"668426b3cdd1a61748309907"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update access module",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accessModules\": [\"orderModule\",\r\n        \"reportModule\",\r\n        \"navigationModule\" ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/roles/update-access-module/668426b3cdd1a61748309907",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles",
+								"update-access-module",
+								"668426b3cdd1a61748309907"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove access module",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accessModule\": \"navigationModule\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/roles/remove-access-module/668426b3cdd1a61748309907",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles",
+								"remove-access-module",
+								"668426b3cdd1a61748309907"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
